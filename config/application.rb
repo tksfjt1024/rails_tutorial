@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -29,5 +29,8 @@ module RailsTutorial
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Using Slim for template engine
+    config.generators.template_engine = :slim
   end
 end
