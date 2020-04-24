@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  host: <%= ENV['RAILS_TUTORIAL_DATABASE_HOST'] %>
   database: rails_tutorial_production
-  username: rails_tutorial
+  username: <%= ENV['RAILS_TUTORIAL_DATABASE_USERNAME'] %>
   password: <%= ENV['RAILS_TUTORIAL_DATABASE_PASSWORD'] %>
