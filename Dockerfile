@@ -1,17 +1,11 @@
-FROM ruby:2.5.1
-
-RUN apt-get update -qq && \
-  apt-get install -y build-essential \ 
-  libpq-dev \        
-  nodejs           
+FROM minecart/ruby-base:1.1-ruby2.5.1         
 
 RUN mkdir /app
 
-ENV APP_ROOT /app
-WORKDIR $APP_ROOT
+WORKDIR /app
 
-ADD ./Gemfile $APP_ROOT/Gemfile
-ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
+ADD Gemfile ./Gemfile
+ADD Gemfile.lock ./Gemfile.lock
+RUN bundle install -j8
 
-RUN bundle install
-ADD . $APP_ROOT
+COPY . .
