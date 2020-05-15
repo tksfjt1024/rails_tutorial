@@ -9,3 +9,5 @@ ADD Gemfile.lock ./Gemfile.lock
 RUN bundle install -j8
 
 COPY . .
+
+RUN ./bin/rails assets:precompile
